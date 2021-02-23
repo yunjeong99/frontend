@@ -1,11 +1,13 @@
 package org.techtown.challengesemestersystem;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,11 +21,17 @@ public class MainActivity extends AppCompatActivity {
     private FragmentHome fragmentHome;
     private FragmentArlam fragmentArlam;
     private FragmentMessage fragmentMessage;
-    private Button btn_home,btn_message,btn_arlam,btn_menu;
+    private Button btn_home,btn_message,btn_arlam;
 
     static final String[] ListMenu={"박소영","mini0u0","pthdud1123"};
     ArrayAdapter arrayAdapter;
     ListView listView;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_actions,menu);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +46,16 @@ public class MainActivity extends AppCompatActivity {
         btn_home=(Button)findViewById(R.id.button_home);
         btn_arlam=(Button)findViewById(R.id.button_arlam);
         btn_message=(Button)findViewById(R.id.button_message);
-        btn_menu=(Button)findViewById(R.id.button_menu);
 
-        /*
-        arrayAdapter=new ArrayAdapter(this, android.R.layout.simple_list_item_1,ListMenu);
-        listView=(ListView)findViewById(R.id.listview_1);
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView adapterView, View view, int i, long l) {
-                String strText=(String)adapterView.getItemAtPosition(i);
-            }
-        });
+        androidx.appcompat.widget.Toolbar toolbar=(androidx.appcompat.widget.Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);//이 액티비티에서 툴바를 사용하겠다는 의미
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);//뒤로가기 버튼
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
+        actionBar.setTitle("알파카");
+        //actionBar.setDisplayShowTitleEnabled(false);
 
 
-         */
 
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override

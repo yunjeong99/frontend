@@ -6,39 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
-
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/button_menu"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="left"
-            android:background="@drawable/hambuger" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/button_menu"
-            android:layout_centerInParent="true"
-            android:textSize="30dp"
-            android:text="mini_0u0" />
+            android:layout_gravity="center"
+            >
+
+        </TextView>
 
 
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/search" />
+    </androidx.appcompat.widget.Toolbar>
 
 
 
-
-
-    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/fragment_layout"
